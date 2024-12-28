@@ -16,8 +16,7 @@ import { selectToken } from "../redux/slices/authSlice";
 import { loadData } from "../redux/slices/dataSlice";
 import axios from "axios";
 import { Button } from "react-native-elements";
-import Icon from "react-native-vector-icons/Ionicons";
-// import { Button } from "@react-native-material/core";
+import Icon from "react-native-vector-icons/Ionicons";;
 import {
   loadingStarted,
   loadingFinished,
