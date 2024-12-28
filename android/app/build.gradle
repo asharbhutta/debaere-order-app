@@ -79,9 +79,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.asharbhutta.debaereorder"
+    namespace "com.debaereorder"
     defaultConfig {
-        applicationId "com.asharbhutta.debaereorder"
+        applicationId "com.debaereorder"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 10

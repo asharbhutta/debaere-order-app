@@ -1,4 +1,4 @@
-package com.asharbhutta.debaereorder
+package com.debaereorder
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

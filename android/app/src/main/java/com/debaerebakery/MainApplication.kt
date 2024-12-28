@@ -1,4 +1,4 @@
-package com.asharbhutta.debaereorder
+package com.debaereorder
 
 import android.app.Application
 import com.facebook.react.PackageList
