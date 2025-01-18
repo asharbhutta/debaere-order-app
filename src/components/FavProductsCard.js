@@ -21,62 +21,23 @@ export default function PreviousOrdersCard() {
 
   return (
     <TouchableNativeFeedback
-      onPress={() => navigation.navigate("PreviousOrders")}
+      onPress={() => navigation.navigate("FavProductView")}
     >
-      {/* <Card style={styles.container}>
-        <Card.Content>
-          <View styles={styles.wrapper}>
-            <View style={styles.content}>
-              <View>
-                <Text style={{ fontSize: 20, marginTop: 10 }}>
-                  Previous Orders
-                </Text>
-              </View>
-
-              <View style={styles.sideDiv}>
-                <Icon
-                  name="cart-outline"
-                  color={COLORS.accent}
-                  size={50}
-                  style={{ marginLeft: 100 }}
-                />
-              
-              </View>
-            </View>
-          </View>
-        </Card.Content>
-      </Card> */}
-{/* 
-      <Card style={styles.container}>
-        <Card.Content>
-            <View style={styles.navBar}>
-              <View style={styles.leftContainer}>
-                <Text style={{ fontSize: 20, marginTop: 10 }}>
-                    Previous Orders
-                  </Text>
-              </View>
-
-              <View style={styles.rightContainer}>
-                <Text>As</Text>
-              </View>
-
-            </View>
-        </Card.Content>
-      </Card> */}
     <View>
     <Card style={styles.container}>
       <Card.Content style={[styles.container,{ marginVertical:-20}]}>
         <View style={styles.navBar}>
           <Text style={{ fontSize: 20, color: "grey", textAlign: 'left', marginLeft: -25}}>
-            Previous Orders
+            Favorite Productos
           </Text>
           <View style={styles.rightContainer}>
-          <Icon
+          {/* <Icon
               name="cart-outline"
               color={COLORS.accent}
               size={50}
               style={{ marginLeft: 100 }}
-            /> 
+            />  */}
+            <Image style={{width: 40, height: 40, marginVertical: 5}} resizeMode='contain' source={require('./../../assets/fav.png')}/>
           </View>
         </View>
       </Card.Content>

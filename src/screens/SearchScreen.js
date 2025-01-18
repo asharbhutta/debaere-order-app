@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -40,7 +39,16 @@ export default function SearchScreen() {
   const [orders, setOrders] = useState([]);
   const [searchTerm,setSearchTerm]=useState("");
   const isOrderEmpty = orders.length > 0 ? false : true;
-  const [filteredPorducts,setFilteredProducts]=useState(products);
+  const [filteredPorducts, setFilteredProducts] = useState(products);
+  
+  useEffect(()=>{
+    var fProducts=[];
+    fProducts=products.filter(product => {
+                if (searchTerm === "") return products;
+                return product.name.toLowerCase().includes(searchTerm.toLowerCase());
+            });
+      setFilteredProducts(fProducts);
+  },[products])
 
   function handleSearchChange(note) {
     setSearchTerm(note);
@@ -83,6 +91,7 @@ export default function SearchScreen() {
       })
       .catch((error) => {
         dispatch(loadingFinished());
+        dispatch(showErrorSnackBar({ message: error?.message ?? "No Data" }));
       });
 
     return response;

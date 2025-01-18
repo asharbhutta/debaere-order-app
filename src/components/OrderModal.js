@@ -27,9 +27,15 @@ import { selectOrderDate, setOrderDate } from "../redux/slices/cartSlice";
 export default function OrderModal() {
   const visible = useSelector(selectModalStatus);
   const [date, setDate] = useState(null);
+  const [varifiedDate, setVerifiedDate] = useState(null);
+  const [showVerifyLoading, setShowVerifyLoadinge] = useState(false);
   const dispatch = useDispatch();
   const API_URL =
-    "https://debaereorder.asharbhutta.com/public/api/getMinOrderPrice";
+    "https://debaereor.asharbhutta.com/public/api/getMinOrderPrice";
+
+  const API_URL2 =
+    "https://debaereor.asharbhutta.com/public/api/validate-order-date";
+
   const token = useSelector(selectToken);
 
   const getMinOrderPrice = async (token, dateObj) => {
@@ -53,6 +59,47 @@ export default function OrderModal() {
         .catch((error) => {
           console.log(error);
           dispatch(loadingFinished());
+          dispatch(showErrorSnackBar({ message: error?.message ?? "Error While processing Order.Please check your network connection" }));
+        });
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
+  const verifySelected = async (token, selectedDate) => {
+    let config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    // dispatch(loadingStarted());
+    setShowVerifyLoadinge(true)
+
+    try {
+      await axios
+        .post(API_URL2, selectedDate, config)
+        .then((response) => {
+          console.log(response);
+          setVerifiedDate(selectedDate.order_date)
+          // dispatch(
+          //   showSucessSnackBar({
+          //     message: response?.message ?? "Order Date is Valid",
+          //   })
+          // );
+          // dispatch(loadingFinished());
+          setShowVerifyLoadinge(false)
+        })
+        .catch((error) => {
+          console.log(error);
+          dispatch(
+            showErrorSnackBar({
+              message: error?.message ?? "Invalid Date",
+            })
+          );
+          // dispatch(loadingFinished());
+          setShowVerifyLoadinge(false)
         });
     } catch (e) {
       console.warn(e);
@@ -102,6 +149,7 @@ export default function OrderModal() {
       if (today.getHours() > 11) {
         validate = false;
         setDate(null);
+        setVerifiedDate(null);
         const message = {
           message:
             "Sorry! You have missed the order deadline. Please change date for the next day",
@@ -117,6 +165,7 @@ export default function OrderModal() {
       if (datediff(today, orderDate) < 5) {
         validate = false;
         setDate(null);
+        setVerifiedDate(null);
         const message = {
           message:
             "Placing Order For Sunday & Monday Is Not Allowed on Satuday",
@@ -129,6 +178,7 @@ export default function OrderModal() {
       if (datediff(today, orderDate) < 5) {
         validate = false;
         setDate(null);
+        setVerifiedDate(null);
         const message = {
           message: "Placing Order For  Monday Is Not Allowed on  Sunday",
         };
@@ -144,6 +194,7 @@ export default function OrderModal() {
         if (today.getHours() > 11) {
           validate = false;
           setDate(null);
+          setVerifiedDate(null);
           const message = {
             message:
               "Placing Order For Upcoming Saturday,Sunday & Monday Is Not Allowed on Friday After 12pm",
@@ -155,6 +206,7 @@ export default function OrderModal() {
 
     if (validate == true) {
       setDate(date);
+      verifySelected(token, { order_date: date });
     }
   }
 
@@ -272,6 +324,7 @@ export default function OrderModal() {
                         fontSize: 18,
                         fontWeight: '500',
                         color: '#151E26',
+                        textAlign: 'center'
                       }}>
                         {(selectedItem && selectedItem.title) || "Select Date"}
                       </Text>
@@ -298,16 +351,8 @@ export default function OrderModal() {
               />
             </View>
           </KeyboardAvoidingView>
-          {/* <Button
-            buttonStyle={{ paddingHorizontal: 20, marginTop: 10 , backgroundColor: '#D3D3D3', borderColor: COLORS.accent, display: date == null ? "none" : "flex",}}
-            titleStyle={{color: 'black', fontWeight: 500}}
-            iconRight
-            type="solid"
-            title="Start Order"
-            onPress={() => proceedOrderDate()}
-          /> */}
           <Button
-            buttonStyle={{ paddingHorizontal: 10, margin: 10 , backgroundColor: 'transparent', borderColor: COLORS.accent, display: date == null ? "none" : "flex",}}
+            buttonStyle={{ paddingHorizontal: 10, margin: 10 , backgroundColor: 'transparent', borderColor: COLORS.accent, display: varifiedDate == null ? "none" : "flex",}}
             titleStyle={{color: COLORS.accent,fontWeight: 500}}
             icon={
               <Icon
@@ -322,6 +367,7 @@ export default function OrderModal() {
             title="START ORDER"
             onPress={() => proceedOrderDate()}
           />
+          {showVerifyLoading && <ActivityIndicator style={{marginTop: 30}}/>}
         </View>
       </View>
     </Modal>

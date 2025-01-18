@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showElement, setShowElement] = React.useState(false);
-  const LOGIN_URL = "https://debaereorder.asharbhutta.com/public/api/login";
+  const LOGIN_URL = "https://debaereor.asharbhutta.com/public/api/login";
   // const LOGIN_URL="http://192.168.0.107/debaere_order_admin/debaere_order_admin/public/api/login"
 
   const dispatch = useDispatch();

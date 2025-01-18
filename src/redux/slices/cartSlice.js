@@ -128,6 +128,11 @@ const cartSlice = createSlice({
     reorderCart(state, action) {
       state.cartItems = [];
       state.cartItems = action.payload;
+      var ItemPrices=0;
+      action?.payload.forEach((element) => {
+        ItemPrices+=element.count * element.price;
+      });
+      state.totalPrice=ItemPrices;
     },
   },
 });

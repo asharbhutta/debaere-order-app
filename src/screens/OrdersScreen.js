@@ -33,7 +33,7 @@ export default function OrdersScreen() {
   const [orders, setOrders] = useState([]);
   const isOrderEmpty = orders.length > 0 ? false : true;
 
-  const API_URL="https://debaereorder.asharbhutta.com/public/api/previousOrders";
+  const API_URL="https://debaereor.asharbhutta.com/public/api/previousOrders";
   // const API_URL="http://192.168.0.107/debaere_order_admin/debaere_order_admin/public/api/previousOrders"
 
   const getOrders = async (token) => {
@@ -57,6 +57,7 @@ export default function OrdersScreen() {
       .catch((error) => {
         console.log('getOrders::', error)
         dispatch(loadingFinished());
+        dispatch(showErrorSnackBar({ message: error?.message ?? "No Data" }));
       });
   };
 

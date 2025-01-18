@@ -3,16 +3,20 @@ import {
   Text,
   View,
   TouchableNativeFeedback,
+  TouchableOpacity,
   Image,
   StyleSheet,
   Alert,
+  TouchableHighlight,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Avatar, Card, Title, Paragraph } from "react-native-paper";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/Ionicons";
+import { selectToken } from "../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { showErrorSnackBar } from "../redux/slices/snackBarSlice";
+import { setProductFav, selectProducts } from "../redux/slices/dataSlice";
 import {
   addItemInCart,
   removeItemInCart,
@@ -25,6 +29,11 @@ import {
 import { COLORS } from "./Colors";
 import { TextInput } from "react-native-paper";
 import Highlighter from "react-highlight-words";
+import axios from "axios";
+import {
+  loadingStarted,
+  loadingFinished,
+} from "../redux/slices/snackBarSlice";
 
 export default function ProductCard({
   item,
@@ -45,7 +54,31 @@ export default function ProductCard({
   const [price, setPrice] = React.useState(
     parseFloat(item.price * count, 2).toFixed(2)
   );
+  const token = useSelector(selectToken);
   const orderDate = useSelector(selectOrderDate);
+  const products = useSelector(selectProducts);
+
+  const API_URL="https://debaereor.asharbhutta.com/public/api/mark-favorite";
+
+  const changeFavStatus = async (token, dateObj) => {
+    let config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    // dispatch(loadingStarted());
+
+    await axios
+      .post(API_URL, dateObj, config)
+      .then((response) => {
+        // dispatch(loadingFinished());
+      })
+      .catch((error) => {
+        // dispatch(loadingFinished());
+      });
+  };
 
   function handleNotesChange(note) {
     setNote(note);
@@ -203,6 +236,48 @@ export default function ProductCard({
       );
     }
   }
+  function weekList (item) {
+    const weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    return (
+        <Text style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+          {weekdays.map((day, index) => (
+            <Text
+              key={day}
+              style={[
+                styles.day,
+                { color: item[day] === 1 ? 'green' : 'red' },
+              ]}
+            >
+              {day.toUpperCase()}
+              {index < weekdays.length - 1 && ', '}
+            </Text>
+          ))}
+        </Text>
+    );
+  }
+  function isDayEnabledOfSelectedDate(item) {
+    // Create a Date object from the dateString
+    const date = new Date(orderDate);
+  
+    // Get the day of the week as a number (0 = Sunday, 1 = Monday, etc.)
+    const dayIndex = date.getDay();
+  
+    // Map the day index to the corresponding day abbreviation
+    const dayNames = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    const dayName = dayNames[dayIndex];
+  
+    // Check if the day is enabled in the days object
+    return item[dayName] === 1;
+  }
+  function markFav(currentProduct) {
+    let updatedProducts = products.map((item) =>
+      item.id == currentProduct.id
+        ? { ...item, favorite: !currentProduct.favorite}
+        : item
+    );
+    changeFavStatus(token, {'product_id': currentProduct.id , favorite: !currentProduct.favorite})
+    dispatch(setProductFav(updatedProducts));
+  }
 
   return (
     <TouchableNativeFeedback
@@ -249,6 +324,9 @@ export default function ProductCard({
                 </Text>
                 <Text style={styles.portion}>Unit Price:{item.price} £</Text>
               </View>
+              <TouchableOpacity style={{ position: 'absolute', top : 10, left: 10}} onPress={()=>markFav(item)}>
+                <Image style={[styles.favIcon]} source={item.favorite ? require('./../../assets/fav.png') : require('./../../assets/unFav.png')}/>
+              </TouchableOpacity>
             </View>
             <View style={styles.navBar}>
               <View style={styles.rightContainer}>
@@ -256,6 +334,10 @@ export default function ProductCard({
               </View>
             </View>
 
+            <View style={styles.availableDays}>
+                {weekList(item)}
+            </View>
+                  
             <View
               style={{
                 alignItems: "center",
@@ -268,38 +350,46 @@ export default function ProductCard({
                 justifyContent: 'space-between'
               }}
             >
-              <View style={styles.counterWrapper}>
-                <Button
-                  buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
-                  titleStyle={{color: COLORS.accent}}
-                  icon={
-                    <Icon
-                      style={{ textAlign: "center" }}
-                      name="remove"
-                      size={20}
-                      color={COLORS.accent}
-                    />
-                  }
-                  type="outline"
-                  onPress={() => handleCount(item, count, "-")}
-                />
-                <Text style={{ textAlign: "center", margin: 5 , fontSize: 20, fontWeight: 400, color: "grey"}}>{count}</Text>
-                <Button
-                  buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
-                  titleStyle={{color: COLORS.accent}}
-                  icon={
-                    <Icon
-                      style={{ textAlign: "center" }}
-                      name="add"
-                      size={20}
-                      color={COLORS.accent}
-                    />
-                  }
-                  type="outline"
-                  onPress={() => handleCount(item, count)}
-                />
-              </View>
-              <ActionButton item={item}/>
+              {isDayEnabledOfSelectedDate(item) ? 
+              <>
+                <View style={styles.counterWrapper}>
+                  <Button
+                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                    titleStyle={{color: COLORS.accent}}
+                    icon={
+                      <Icon
+                        style={{ textAlign: "center" }}
+                        name="remove"
+                        size={20}
+                        color={COLORS.accent}
+                      />
+                    }
+                    type="outline"
+                    onPress={() => handleCount(item, count, "-")}
+                  />
+                  <Text style={{ textAlign: "center", margin: 5 , fontSize: 20, fontWeight: 400, color: "grey"}}>{count}</Text>
+                  <Button
+                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                    titleStyle={{color: COLORS.accent}}
+                    icon={
+                      <Icon
+                        style={{ textAlign: "center" }}
+                        name="add"
+                        size={20}
+                        color={COLORS.accent}
+                      />
+                    }
+                    type="outline"
+                    onPress={() => handleCount(item, count)}
+                  />
+                </View>
+                <ActionButton item={item}/>
+              </>
+              :
+              <>
+               <Text style={[styles.price, {color: 'red'}]}>Not avialable for selected date</Text>
+              </>
+              }
             </View>
 
             {/* <View style={styles.navBar}>
@@ -369,6 +459,10 @@ const styles = StyleSheet.create({
     width: 135,
     height: 135,
     borderRadius: 10,
+  },
+  favIcon: {
+    width: 30,
+    height: 30,
   },
   content: {
     flexDirection: "row",
@@ -458,4 +552,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
+  availableDays: {
+    flexDirection: 'row',
+    height: 40,
+    // marginTop: 10,
+    alignItems: 'center'
+  }
 });

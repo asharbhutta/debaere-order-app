@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
 import SubAppBar from "../components/SubAppBar";
 import { useRoute } from "@react-navigation/native";
 import { Button } from "react-native-elements";
@@ -10,7 +10,9 @@ import {
   showWarningSnackBar,
   showErrorSnackBar,
 } from "../redux/slices/snackBarSlice";
-import { useDispatch } from "react-redux";
+import { selectToken } from "../redux/slices/authSlice";
+import { setProductFav, selectProducts } from "../redux/slices/dataSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { RadioButton } from "react-native-paper";
 import {
@@ -18,18 +20,21 @@ import {
   removeItemInCart,
   updateItemCount,
   updateItemSliced,
+  selectOrderDate,
 } from "../redux/slices/cartSlice";
+
 // import { SegmentedControls } from "react-native-radio-buttons";
+import axios from "axios";
 
 export default function ProductView({ onClickProduct }) {
   const dispatch = useDispatch();
   const route = useRoute();
-  const item = route.params.item;
+  const itemm = route.params.item;
   const order = route.params.order;
   const navigation = useNavigation();
-  const initialCount = order != null ? order.count : parseInt(item.pack_size);
+  const initialCount = order != null ? order.count : parseInt(itemm.pack_size);
   const ordetransparentProduct = order != null ? true : false;
-  const sliceOption = item.sliceOption;
+  const sliceOption = itemm.sliceOption;
   const initialSliced = order != null ? order.sliceOption : null;
   const radioDisabled = order != null ? true : false;
   var options = [
@@ -43,8 +48,34 @@ export default function ProductView({ onClickProduct }) {
     },
   ];
 
+  const [item, setItem] = useState(itemm);
   const [count, setCount] = useState(initialCount);
   const [sliced, setSliced] = React.useState(initialSliced);
+  const orderDate = useSelector(selectOrderDate);
+  const token = useSelector(selectToken);
+  const products = useSelector(selectProducts);
+
+  const API_URL="https://debaereor.asharbhutta.com/public/api/mark-favorite";
+
+  const changeFavStatus = async (token, dateObj) => {
+    let config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    // dispatch(loadingStarted());
+
+    await axios
+      .post(API_URL, dateObj, config)
+      .then((response) => {
+        // dispatch(loadingFinished());
+      })
+      .catch((error) => {
+        // dispatch(loadingFinished());
+      });
+  };
   function setSelectedOption(selectedOption) {
     setSliced(selectedOption);
   }
@@ -162,12 +193,62 @@ export default function ProductView({ onClickProduct }) {
     }
   }
 
+  function weekList (item) {
+    const weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    return (
+        <Text style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+          {weekdays.map((day, index) => (
+            <Text
+              key={day}
+              style={[
+                styles.day,
+                { color: item[day] === 1 ? 'green' : 'red' },
+              ]}
+            >
+              {day.toUpperCase()}
+              {index < weekdays.length - 1 && ', '}
+            </Text>
+          ))}
+        </Text>
+    );
+  }
+  function isDayEnabledOfSelectedDate(item) {
+    // Create a Date object from the dateString
+    const date = new Date(orderDate);
+  
+    // Get the day of the week as a number (0 = Sunday, 1 = Monday, etc.)
+    const dayIndex = date.getDay();
+  
+    // Map the day index to the corresponding day abbreviation
+    const dayNames = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    const dayName = dayNames[dayIndex];
+  
+    // Check if the day is enabled in the days object
+    return item[dayName] === 1;
+  }
+  function markFav(currentProduct) {
+    let updatedProducts = products.map((item) =>
+      item.id == currentProduct.id
+        ? { ...item, favorite: !currentProduct.favorite}
+        : item
+    );
+    setItem({ ...item, favorite: !currentProduct.favorite})
+    changeFavStatus(token, {'product_id': currentProduct.id , favorite: !currentProduct.favorite})
+    dispatch(setProductFav(updatedProducts));
+  }
+
   return (
     <>
       <SubAppBar title={item.name} />
       <ScrollView>
         <View style={{ flex: 1 }}>
           <Image style={styles.image} source={{ uri: item.image_url }} />
+           <TouchableOpacity style={{ position: 'absolute', top : 15, right: 15}} onPress={()=>markFav(item)}>
+            <Image style={[styles.favIcon]} source={item.favorite ? require('./../../assets/fav.png') : require('./../../assets/unFav.png')}/>
+          </TouchableOpacity>
+          <View style={styles.availableDays}>
+              {weekList(item)}
+          </View>
           <View
             style={{
               alignItems: "center",
@@ -181,38 +262,46 @@ export default function ProductView({ onClickProduct }) {
               marginHorizontal: 4
             }}
           >
-            <View style={styles.counterWrapper}>
-              <Button
-                buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
-                titleStyle={{color: COLORS.accent}}
-                icon={
-                  <Icon
-                    style={{ textAlign: "center" }}
-                    name="remove"
-                    size={20}
-                    color={COLORS.accent}
+            {isDayEnabledOfSelectedDate(item) ? 
+              <>
+                <View style={styles.counterWrapper}>
+                  <Button
+                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                    titleStyle={{color: COLORS.accent}}
+                    icon={
+                      <Icon
+                        style={{ textAlign: "center" }}
+                        name="remove"
+                        size={20}
+                        color={COLORS.accent}
+                      />
+                    }
+                    type="outline"
+                    onPress={() => handleCount(item, count, "-")}
                   />
-                }
-                type="outline"
-                onPress={() => handleCount(item, count, "-")}
-              />
-              <Text style={{ textAlign: "center", margin: 5 , fontSize: 20, fontWeight: 400, color: "grey"}}>{count}</Text>
-              <Button
-                buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
-                titleStyle={{color: COLORS.accent}}
-                icon={
-                  <Icon
-                    style={{ textAlign: "center" }}
-                    name="add"
-                    size={20}
-                    color={COLORS.accent}
+                  <Text style={{ textAlign: "center", margin: 5 , fontSize: 20, fontWeight: 400, color: "grey"}}>{count}</Text>
+                  <Button
+                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                    titleStyle={{color: COLORS.accent}}
+                    icon={
+                      <Icon
+                        style={{ textAlign: "center" }}
+                        name="add"
+                        size={20}
+                        color={COLORS.accent}
+                      />
+                    }
+                    type="outline"
+                    onPress={() => handleCount(item, count)}
                   />
-                }
-                type="outline"
-                onPress={() => handleCount(item, count)}
-              />
-            </View>
-            <ActionButton item={item} />
+                </View>
+                <ActionButton item={item} />
+              </>
+              :
+              <>
+                <Text style={[styles.price, {color: 'red'}]}>Not avialable for selected date</Text>
+              </>
+            }
           </View>
           <View>
             <View
@@ -386,5 +475,16 @@ const styles = StyleSheet.create({
     fontStyle: "bold",
     fontWeight: "600",
     color: "grey"
-  }
+  },
+  availableDays: {
+    flexDirection: 'row',
+    // height: 40,
+    marginTop: 10,
+    alignItems: 'center',
+    paddingHorizontal: 10
+  },
+  favIcon: {
+    width: 30,
+    height: 30,
+  },
 });

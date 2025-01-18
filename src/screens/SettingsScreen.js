@@ -2,12 +2,14 @@ import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import UserInfo from "../components/UserInfo";
 import PreviousOrdersCard from "../components/PreviousOrdersCard";
+import FavProductsCard from "../components/FavProductsCard";
 
 
 export default function SettingsScreen() {
   return (
     <View style={{ flex: 1, alignItems: "center", height: 20 }}>
       <UserInfo />
+      <FavProductsCard />
       <PreviousOrdersCard />
     </View>
   );

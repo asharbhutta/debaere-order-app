@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react";
 
 const initialState = {
   offerings: [],
@@ -33,10 +34,13 @@ const dataSlice = createSlice({
     setMinOrderPrice: (state, action) => {
       state.min_order_price = action.payload;
     },
+    setProductFav:(state, action) => {
+      state.products = Object.assign([], action.payload)
+    }
   },
 });
 
-export const { loadData, loadPormotion, setMinOrderPrice } = dataSlice.actions;
+export const { loadData, loadPormotion, setMinOrderPrice, setProductFav } = dataSlice.actions;
 
 export const selectOfferings = (state) => state.data.offerings;
 export const selectProducts = (state) => state.data.products;

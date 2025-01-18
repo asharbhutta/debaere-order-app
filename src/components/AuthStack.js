@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, {useEffect} from "react";
 import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
@@ -8,9 +8,16 @@ import { StyleSheet, Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login";
 import Splash from "../screens/Splash";
+import NativeDevSettings from 'react-native/Libraries/NativeModules/specs/NativeDevSettings';
+
 const Stack = createNativeStackNavigator();
 
 export default function AuthStack() {
+  useEffect(()=>{
+    if (__DEV__) {
+      NativeDevSettings.setIsDebuggingRemotely(true);
+    }
+  },[])
   return (
     <Stack.Navigator
       screenOptions={({ route }) => ({

@@ -45,7 +45,9 @@ export default function CartView() {
   const delivery_charges = useSelector(selectDeliveryCharges);
   console.warn(minOrderPrice);
 
-  const API_URL = "https://debaereorder.asharbhutta.com/public/api/makeOrder";
+  const API_URL = "https://debaereor.asharbhutta.com/public/api/makeOrder";
+  const API_URL2 =
+    "https://debaereor.asharbhutta.com/public/api/validate-order-date";
   //const API_URL="http://192.168.0.107/debaere_order_admin/debaere_order_admin/public/api/makeOrder";
 
   function makeOrderObject() {
@@ -67,6 +69,43 @@ export default function CartView() {
 
     return orderObj;
   }
+
+  const verifySelected = async (token, selectedDate) => {
+    let config = {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    dispatch(loadingStarted());
+
+    try {
+      await axios
+        .post(API_URL2, selectedDate, config)
+        .then((response) => {
+          console.log(response);
+          // dispatch(
+          //   showSucessSnackBar({
+          //     message: response?.message ?? "Order Date is Valid",
+          //   })
+          // );
+          dispatch(loadingFinished());
+          postOrder(token, makeOrderObject())
+        })
+        .catch((error) => {
+          console.log(error);
+          dispatch(
+            showErrorSnackBar({
+              message: error?.message ?? "Invalid Date",
+            })
+          );
+          dispatch(loadingFinished());
+        });
+    } catch (e) {
+      console.warn(e);
+    }
+  };
 
   const postOrder = async (token, orderObj) => {
     let config = {
@@ -93,12 +132,7 @@ export default function CartView() {
         })
         .catch((error) => {
           console.warn(error);
-          dispatch(
-            showErrorSnackBar({
-              message:
-                "Error While processing Order.Please check your network connection",
-            })
-          );
+          dispatch(showErrorSnackBar({ message: error?.message ?? "Error While processing Order.Please check your network connection" }));
           dispatch(loadingFinished());
         });
     } catch (e) {
@@ -164,7 +198,7 @@ export default function CartView() {
       "Confirm Order",
       "Do you want to proceed with this order ?", // <- this part is optional, you can pass an empty string
       [
-        { text: "OK", onPress: () => postOrder(token, makeOrderObject()) },
+        { text: "OK", onPress: () => verifySelected(token, { order_date: orderDate }) },
         {
           text: "Cancel",
         },
@@ -261,26 +295,6 @@ export default function CartView() {
             title="PROCEED ORDER"
             onPress={() => showOrderConfirmationAlert()}
           />
-          {/* <Button
-            title="Proceed Order"
-            color="#ceb888"
-            tintColor="white"
-            size="30"
-            onPress={() => showOrderConfirmationAlert()}
-            // leading={(props) => <Icon name="cart" {...props} />}
-            style={{
-              height: 50,
-              textAlign: "center",
-              padding: 10,
-
-              width: 200,
-
-              cartIcon: 30,
-              marginBottom: 20,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          /> */}
         </View>
       </View>
       <View

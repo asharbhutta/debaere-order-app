@@ -47,7 +47,7 @@ export default function HomeScreen({ navigation }) {
   //   // setPOpen(true);
   // }
 
-  const API_URL="https://debaereorder.asharbhutta.com/public/api/getData";
+  const API_URL="https://debaereor.asharbhutta.com/public/api/getData";
  // const API_URL="http://192.168.0.107/debaere_order_admin/debaere_order_admin/public/api/getData";
 
 
@@ -92,6 +92,7 @@ export default function HomeScreen({ navigation }) {
       })
       .catch((error) => {
         dispatch(loadingFinished());
+        dispatch(showErrorSnackBar({ message: error?.message ?? "No Data" }));
       });
   };
 
