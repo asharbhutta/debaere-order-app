@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, ActivityIndicator, Image } from "react-native";
+import { View, Text, ActivityIndicator, Image, ActivityIndicator } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "@react-native-material/core";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   adClose,
   adOpen,
@@ -20,6 +20,7 @@ import { selectOrderDate, setOrderDate } from "../redux/slices/cartSlice";
 export default function AdModal() {
   const visible = useSelector(selectAddStatus);
   const promotion = useSelector(selectPromotion);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   var imageUrl = "";
   const dispatch = useDispatch();
 
@@ -90,7 +91,8 @@ export default function AdModal() {
               marginTop: 10,
             }}
           >
-            <Image style={{ borderRadius: 10 }} source={{ uri: imageUrl }} />
+            <Image style={{ borderRadius: 10 }} source={{ uri: imageUrl }} onLoad={()=>setIsImageLoaded(true)}/>
+            {isImageLoaded && <ActivityIndicator style={{position: 'absolute', alignSelf: 'center'}}/>}
           </View>
         </View>
       </View>

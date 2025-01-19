@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, ActivityIndicator } from "react-native";
 import SubAppBar from "../components/SubAppBar";
 import { useRoute } from "@react-navigation/native";
 import { Button } from "react-native-elements";
@@ -50,7 +50,9 @@ export default function ProductView({ onClickProduct }) {
 
   const [item, setItem] = useState(itemm);
   const [count, setCount] = useState(initialCount);
-  const [sliced, setSliced] = React.useState(initialSliced);
+  const [sliced, setSliced] = useState(initialSliced);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [imageLoadingFailed, setImageLoadingFailed] = useState(false);
   const orderDate = useSelector(selectOrderDate);
   const token = useSelector(selectToken);
   const products = useSelector(selectProducts);
@@ -242,12 +244,15 @@ export default function ProductView({ onClickProduct }) {
       <SubAppBar title={item.name} />
       <ScrollView>
         <View style={{ flex: 1 }}>
-          <Image style={styles.image} source={{ uri: item.image_url }} />
+          <View>
+           <Image style={styles.image}  source={!imageLoadingFailed ? { uri: item.image_url } : require('./../../assets/no-image.png')} onLoad={()=>setIsImageLoaded(false)} onError={()=>setImageLoadingFailed(true)} resizeMode= {!imageLoadingFailed ? 'center' : 'cover'}/> 
+           {/* {!isImageLoaded && <ActivityIndicator style={{position: 'absolute', alignSelf: 'center'}}/>} */}
+          </View>
            <TouchableOpacity style={{ position: 'absolute', top : 15, right: 15}} onPress={()=>markFav(item)}>
             <Image style={[styles.favIcon]} source={item.favorite ? require('./../../assets/fav.png') : require('./../../assets/unFav.png')}/>
           </TouchableOpacity>
           <View style={styles.availableDays}>
-              {weekList(item)}
+            {weekList(item)}
           </View>
           <View
             style={{
@@ -415,7 +420,12 @@ const styles = StyleSheet.create({
 
   image: {
     height: 300,
+    // width: '90%',
     margin: 5,
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center'
+   
   },
   content: {
     flexDirection: "row",

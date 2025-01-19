@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Alert,
   TouchableHighlight,
+  ActivityIndicator
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Avatar, Card, Title, Paragraph } from "react-native-paper";
@@ -51,6 +52,8 @@ export default function ProductCard({
   const [count, setCount] = useState(initialCount);
   const [sliced, setSliced] = React.useState(initialSliced);
   const [note, setNote] = React.useState(initialMessage);
+  const [isImageLoaded, setIsImageLoaded] = React.useState(true);
+  const [imageLoadingFailed, setImageLoadingFailed] = React.useState(false);
   const [price, setPrice] = React.useState(
     parseFloat(item.price * count, 2).toFixed(2)
   );
@@ -290,7 +293,14 @@ export default function ProductCard({
         <Card.Content style={styles.container}>
           <View styles={styles.wrapper}>
             <View style={styles.content}>
-              <Image style={styles.image} source={{ uri: item.image_url }} />
+              <View style={styles.image}>
+                {item.image_url && !imageLoadingFailed ?
+                  <Image style={styles.image} source={item.image_url ? { uri: item.image_url } : require('./../../assets/no-image.png')} onLoad={()=>setIsImageLoaded(false)} onError={()=>setImageLoadingFailed(true)}/>
+                  :
+                  <Image style={styles.image} source={require('./../../assets/no-image.png')} onLoad={()=>setIsImageLoaded(false)}/>
+                }
+                {isImageLoaded && <ActivityIndicator style={{position: 'absolute', alignSelf: 'center'}}/>}
+              </View>
               <View style={styles.sideDiv}>
                 <Text style={styles.productTitle}>{item.name}</Text>
                 {/* <Highlighter
@@ -459,6 +469,8 @@ const styles = StyleSheet.create({
     width: 135,
     height: 135,
     borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   favIcon: {
     width: 30,
