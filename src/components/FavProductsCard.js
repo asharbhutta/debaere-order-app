@@ -28,7 +28,7 @@ export default function PreviousOrdersCard() {
       <Card.Content style={[styles.container,{ marginVertical:-20}]}>
         <View style={styles.navBar}>
           <Text style={{ fontSize: 20, color: "grey", textAlign: 'left', marginLeft: -25}}>
-            Favorite Productos
+            Favorite Products
           </Text>
           <View style={styles.rightContainer}>
           {/* <Icon

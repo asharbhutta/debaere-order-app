@@ -5,7 +5,8 @@ import {
   View,
   FlatList,
   Image,
-  Platform
+  Platform,
+  ActivityIndicator
 } from "react-native";
 import { TextInput, IconButton } from "@react-native-material/core";
 import CategoryCard from "../components/CategoryCard";
@@ -40,6 +41,7 @@ export default function HomeScreen({ navigation }) {
   const [pOpen, setPOpen] = useState(orderedProduct);
   const [description, setdescription] = useState("");
   const [promotionActive, setPromotionActive] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const [adImage, setAdImage] = useState(null);
   // if (orderedProduct == true) {
@@ -125,7 +127,7 @@ export default function HomeScreen({ navigation }) {
         onFocus={() => showAlert()}
       />
       <Button
-        buttonStyle={{ padding: 10, margin: 10 , backgroundColor: 'transparent', borderColor: COLORS.accent}}
+        buttonStyle={{ padding: 10, margin: 10 , backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
         titleStyle={{color: COLORS.accent}}
         icon={
           <Icon
@@ -179,7 +181,7 @@ export default function HomeScreen({ navigation }) {
               }}
             >
               <Button
-                buttonStyle={{ paddingHorizontal: 20, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                buttonStyle={{ paddingHorizontal: 20, backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
                 icon={
                   <Icon
                     style={{ textAlign: "center"}}
@@ -202,18 +204,32 @@ export default function HomeScreen({ navigation }) {
               }}
             >
               {adOpen ? (
-                <Image
-                  source={{ uri: adImage }}
-                  style={{
-                    width: 300,
-                    height: 300,
-                    resizeMode: "contain",
-                  }}
-                />
+                <View style={{ width: 300, height: 300,alignContent: 'center', alignItems: 'center', borderRadius: 8, overflow: 'hidden'}}>
+                  <Image
+                    source={{ uri: adImage }}
+                    style={{
+                      width: 300,
+                      height: 300,
+                      resizeMode: "contain",
+                    }}
+                    onLoad={()=>setIsImageLoaded(true)}
+                  />
+                  {!isImageLoaded && 
+                    <View style={{position: 'absolute',  width: 300, height: 300, alignContent: 'center', alignItems: 'center', justifyContent: 'center'}}>
+                      <ActivityIndicator color={COLORS.primary} size="large" style={{alignSelf: 'center'}}/>
+                    </View>
+                  }
+                </View>
               ) : (
                 <Text>Ashar</Text>
               )}
-              <RenderHtml contentWidth="90%" source={{ html: description }} />
+              <RenderHtml contentWidth="90%" source={{ html: description }}  classesStyles={{
+                  custom: { color: 'black', fontSize: 18 }, // Change color for a class named "custom"
+                }} tagsStyles={{
+                  p: { color: 'black' }, // Change all <p> tags to blue
+                  h1: { color: 'black', fontSize: 24 }, // Customize <h1> tags
+                  span: { color: 'black' }, // Customize <span> tags
+                }}/>
             </View>
           </View>
         </View>

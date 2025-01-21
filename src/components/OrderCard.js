@@ -86,7 +86,7 @@ export default function OrdersCard({ item }) {
               </View>
               <View>
                 <Button
-                  buttonStyle={{backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                  buttonStyle={{backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
                   titleStyle={{color: COLORS.accent}}
                   type="outline"
                   title="REORDER"

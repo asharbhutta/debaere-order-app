@@ -280,7 +280,7 @@ export default function CartView() {
 
         <View style={{ alignItems: "center", margin: 5 }}>
           <Button
-            buttonStyle={{ padding: 10, marginBottom: 40, width: 200 , backgroundColor:  COLORS.accent}}
+            buttonStyle={{ padding: 10, marginBottom: 40, width: 200 , backgroundColor:  COLORS.accent, borderWidth: 0}}
             titleStyle={{color: 'white'}}
             icon={
                 <Icon

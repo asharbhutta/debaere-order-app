@@ -41,7 +41,7 @@ export default function UserInfo() {
           </View>
             <View style={styles.leftContainer}>
               <Button
-                buttonStyle={{ paddingHorizontal: 10, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                buttonStyle={{ paddingHorizontal: 10, backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
                 titleStyle={{color: 'red', fontSize: 14, fontWeight:400}}
                 type="outline"
                 title={'LOGOUT'}

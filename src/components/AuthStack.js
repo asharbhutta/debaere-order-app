@@ -4,7 +4,7 @@ import {
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
 } from "react-native-paper";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Platform } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../screens/Login";
 import Splash from "../screens/Splash";
@@ -14,8 +14,10 @@ const Stack = createNativeStackNavigator();
 
 export default function AuthStack() {
   useEffect(()=>{
-    if (__DEV__) {
-      NativeDevSettings.setIsDebuggingRemotely(true);
+    if (Platform.OS == 'ios') {
+      if (__DEV__) {
+        NativeDevSettings.setIsDebuggingRemotely(true);
+      }
     }
   },[])
   return (

@@ -29,6 +29,7 @@ export default function OrderModal() {
   const [date, setDate] = useState(null);
   const [varifiedDate, setVerifiedDate] = useState(null);
   const [showVerifyLoading, setShowVerifyLoadinge] = useState(false);
+  const [inValidDateError, setInValidDateError] = useState(null);
   const dispatch = useDispatch();
   const API_URL =
     "https://debaereor.asharbhutta.com/public/api/getMinOrderPrice";
@@ -89,17 +90,20 @@ export default function OrderModal() {
           //   })
           // );
           // dispatch(loadingFinished());
+          setInValidDateError(null)
           setShowVerifyLoadinge(false)
         })
         .catch((error) => {
           console.log(error);
           dispatch(
             showErrorSnackBar({
-              message: error?.message ?? "Invalid Date",
+              message: error?.response?.data?.message ?? "Invalid Date",
             })
           );
           // dispatch(loadingFinished());
+          setInValidDateError(`Please select another date,\n${error?.response?.data?.message ?? "Invalid Date"}`)
           setShowVerifyLoadinge(false)
+          dispatch(setOrderDate(null));
         });
     } catch (e) {
       console.warn(e);
@@ -222,6 +226,8 @@ export default function OrderModal() {
   }
 
   function closeModal() {
+    setShowVerifyLoadinge(false)
+    setInValidDateError(null)
     dispatch(modalClose());
   }
   function formatDate(date) {
@@ -269,7 +275,7 @@ export default function OrderModal() {
           >
           <Button
             buttonStyle={{
-              paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent,
+              paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1,
             }}
             icon={
               <Icon
@@ -305,6 +311,8 @@ export default function OrderModal() {
               <SelectDropdown
                 data={dates.map(title => ({ title }))}
                 onSelect={(selectedItem, index) => {
+                  setVerifiedDate(null)
+                  setInValidDateError(null)
                   handleDateChange(formatDate(dates[index]));
                 }}
                 renderButton={(selectedItem, isOpened) => {
@@ -352,7 +360,7 @@ export default function OrderModal() {
             </View>
           </KeyboardAvoidingView>
           <Button
-            buttonStyle={{ paddingHorizontal: 10, margin: 10 , backgroundColor: 'transparent', borderColor: COLORS.accent, display: varifiedDate == null ? "none" : "flex",}}
+            buttonStyle={{ paddingHorizontal: 10, margin: 10 , backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1, display: varifiedDate == null ? "none" : "flex",}}
             titleStyle={{color: COLORS.accent,fontWeight: 500}}
             icon={
               <Icon
@@ -367,7 +375,8 @@ export default function OrderModal() {
             title="START ORDER"
             onPress={() => proceedOrderDate()}
           />
-          {showVerifyLoading && <ActivityIndicator style={{marginTop: 30}}/>}
+          {showVerifyLoading && <ActivityIndicator color={COLORS.primary} size="large" style={{marginTop: 30}}/>}
+          {inValidDateError && !showVerifyLoading &&  <Text style={{color: "red", textAlign: 'center', marginTop: 30}}>{inValidDateError}</Text>}
         </View>
       </View>
     </Modal>

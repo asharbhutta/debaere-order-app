@@ -21,6 +21,7 @@ export default function AdModal() {
   const visible = useSelector(selectAddStatus);
   const promotion = useSelector(selectPromotion);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  
   var imageUrl = "";
   const dispatch = useDispatch();
 

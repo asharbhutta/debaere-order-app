@@ -161,7 +161,7 @@ export default function ProductView({ onClickProduct }) {
     if (ordetransparentProduct) {
       return (
       <Button
-        buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+        buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
         titleStyle={{color: COLORS.accent}}
         icon={
           <Icon
@@ -178,7 +178,7 @@ export default function ProductView({ onClickProduct }) {
     } else {
       return (
       <Button
-        buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+        buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
         titleStyle={{color: COLORS.accent}}
         icon={
           <Icon
@@ -198,7 +198,7 @@ export default function ProductView({ onClickProduct }) {
   function weekList (item) {
     const weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
     return (
-        <Text style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+        <Text style={{flexDirection: 'row', flexWrap: 'wrap', fontSize: 10}}>
           {weekdays.map((day, index) => (
             <Text
               key={day}
@@ -261,6 +261,7 @@ export default function ProductView({ onClickProduct }) {
               borderTopWidth: 1,
               padding: 4,
               marginTop: 10,
+              paddingTop: 10,
               flexDirection: "row",
               justifyContent: 'space-between',
               alignItems: 'center',
@@ -271,7 +272,7 @@ export default function ProductView({ onClickProduct }) {
               <>
                 <View style={styles.counterWrapper}>
                   <Button
-                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
                     titleStyle={{color: COLORS.accent}}
                     icon={
                       <Icon
@@ -286,7 +287,7 @@ export default function ProductView({ onClickProduct }) {
                   />
                   <Text style={{ textAlign: "center", margin: 5 , fontSize: 20, fontWeight: 400, color: "grey"}}>{count}</Text>
                   <Button
-                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent}}
+                    buttonStyle={{ paddingHorizontal: 15, backgroundColor: 'transparent', borderColor: COLORS.accent, borderWidth: 1}}
                     titleStyle={{color: COLORS.accent}}
                     icon={
                       <Icon
@@ -304,7 +305,7 @@ export default function ProductView({ onClickProduct }) {
               </>
               :
               <>
-                <Text style={[styles.price, {color: 'red'}]}>Not avialable for selected date</Text>
+                <Text style={[styles.price, {color: 'red', fontSize: 16,}]}>Not avialable for selected date</Text>
               </>
             }
           </View>

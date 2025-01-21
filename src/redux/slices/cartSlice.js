@@ -34,7 +34,7 @@ const cartSlice = createSlice({
 
     },
     setOrderDate: (state, action) => {
-      state.orderDate = action.payload.orderDate;
+      state.orderDate = action.payload?.orderDate ?? null;
     },
     removeItemInCart: (state, payload) => {
       const cartItemsIds = [];
