@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   StatusBar,
   KeyboardAvoidingView,
-  SafeAreaView
+  SafeAreaView,
+  ScrollView
 } from "react-native";
 import { useDispatch } from "react-redux";
 import { COLORS } from "../components/Colors";
@@ -73,65 +74,68 @@ export default function Login({ navigation }) {
     );
 
   return (
-    <View style={styles.container}>
-      <MyStatusBar backgroundColor="#ceb888" barStyle="light-content" />
-      <Image
-        style={styles.image}
-        source={require("../../assets/debere_logo.png")}
-      />
+    <ScrollView style={styles.container} contentInsetAdjustmentBehavior="automatic">
+      <View style={styles.containerInner}>
 
-      <StatusBar style="auto" />
-      <KeyboardAvoidingView
-        style={{ width: "100%" }}
-        {...(Platform.OS === "ios"
-          ? {
-              behavior: "position",
-              // keyboardVerticalOffset: [30], // calculate height using onLayout callback method
-            }
-          : {})}
-      >
-        <View
-          style={{
-            display: showElement == true ? "flex" : "none",
-            width: "100%",
-            alignItems: "center",
-          }}
+        <MyStatusBar backgroundColor="#ceb888" barStyle="light-content" />
+        <Image
+          style={styles.image}
+          source={require("../../assets/debere_logo.png")}
+        />
+
+        <StatusBar style="auto" />
+        <KeyboardAvoidingView
+          style={{ width: "100%" }}
+          {...(Platform.OS === "ios"
+            ? {
+                behavior: "position",
+                // keyboardVerticalOffset: [30], // calculate height using onLayout callback method
+              }
+            : {})}
         >
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.TextInput}
-              placeholder="Email."
-              placeholderTextColor="#003f5c"
-              onChangeText={(email) => setEmail(email)}
-            />
-          </View>
-
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.TextInput}
-              placeholder="Password."
-              placeholderTextColor="#003f5c"
-              secureTextEntry={true}
-              onChangeText={(password) => setPassword(password)}
-            />
-          </View>
-
-          <TouchableOpacity>
-            <Text style={styles.forgot_button}>Forgot Password?</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.loginBtn}
-            onPress={() =>
-              //navigation.navigate("Main", { name: "Jane" })
-              handleLogin()
-            }
+          <View
+            style={{
+              display: showElement == true ? "flex" : "none",
+              width: "100%",
+              alignItems: "center",
+            }}
           >
-            <Text style={styles.loginText}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
-    </View>
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.TextInput}
+                placeholder="Email."
+                placeholderTextColor="#003f5c"
+                onChangeText={(email) => setEmail(email)}
+              />
+            </View>
+
+            <View style={styles.inputView}>
+              <TextInput
+                style={styles.TextInput}
+                placeholder="Password."
+                placeholderTextColor="#003f5c"
+                secureTextEntry={true}
+                onChangeText={(password) => setPassword(password)}
+              />
+            </View>
+
+            <TouchableOpacity>
+              <Text style={styles.forgot_button}>Forgot Password?</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.loginBtn}
+              onPress={() =>
+                //navigation.navigate("Main", { name: "Jane" })
+                handleLogin()
+              }
+            >
+              <Text style={styles.loginText}>LOGIN</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </View>
+    </ScrollView>
   );
 }
 
@@ -139,10 +143,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ceb888",
+  },
+  containerInner: {
     alignItems: "center",
     justifyContent: "flex-start",
   },
-
   image: {
     marginBottom: 10,
     transform: [{ scale: 0.3 }],

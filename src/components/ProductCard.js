@@ -284,7 +284,7 @@ export default function ProductCard({
 
   return (
     <TouchableNativeFeedback
-      style={styles.wrapper}
+      // style={styles.wrapper}
       onPress={() =>
         navigation.navigate("Product", { item: item, order: order })
       }
