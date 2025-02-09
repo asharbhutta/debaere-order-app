@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06A790D72C8F4B0785A7D1C3 /* AktivGroteskCorp-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E4F692507374571BF1FB6D6 /* AktivGroteskCorp-Bold.ttf */; };
+		0759752BC7884C518C39AF92 /* Roboto-BoldCondensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DCC1D798DCE45A9A2B35C77 /* Roboto-BoldCondensed.ttf */; };
+		0BD94C2900F7461BBD3666AA /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE89935DDC04212B2D2D88F /* Roboto-Black.ttf */; };
+		0C80B921A6F3F58F76C31292 /* libPods-Debaere.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Debaere.a */; };
+		0CE153C1EF144FBC80773FED /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61B926FEB09455D934AAD9F /* Roboto-BlackItalic.ttf */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		22D4A04B80034B59A47FF765 /* AktivGroteskCorp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77DB818DDA834874B4569FA2 /* AktivGroteskCorp-Medium.ttf */; };
+		27713E6BFD8A46848729A136 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 385AB1E04A754A0FB780B6D9 /* Roboto-Bold.ttf */; };
+		33FC9E748E8144ADAF8BB95C /* AktivGroteskCorp-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 162A72C5651447F095CBB689 /* AktivGroteskCorp-Italic.ttf */; };
+		547785C7EB30456CBA41EBB5 /* AktivGroteskCorp-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECB2AFE9CD5F466CB9F0D4C9 /* AktivGroteskCorp-BoldItalic.ttf */; };
+		568EB157D97F4E04952D7E91 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9445598D6FE4441788B9593F /* Roboto-Thin.ttf */; };
+		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		81D98A3DA249207514F5C212 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		91EE638E62DA403CB700594C /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 038DAD10D51B4E20873F759B /* Roboto-LightItalic.ttf */; };
+		9A17B3ED7B0445CAB4DD0E4E /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FDCED4F82F845449235FDD6 /* Roboto-Italic.ttf */; };
+		9C687A2D257E4D8C8D71ADD5 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E9AFA4207104846B4912196 /* Roboto-Regular.ttf */; };
+		9DE064B681164DF69E69503F /* AktivGroteskCorp-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58938D8249F5458B8018AC72 /* AktivGroteskCorp-Light.ttf */; };
+		A2FED1F28ECA41F5874C466B /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C604758A2BB482F8FB715BD /* Roboto-BoldItalic.ttf */; };
+		A977C72849D44CE69AF7F7B5 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31E9B20748084BEBB735C839 /* Roboto-Medium.ttf */; };
+		B4E18298A1C240B9B151990B /* AktivGroteskCorp-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68313AA179C344F6AA1DA00C /* AktivGroteskCorp-Regular.ttf */; };
+		B6DCBF5D99F041F1A0D61962 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AF1FC5452D44CF1813EC75C /* Roboto-Light.ttf */; };
+		C48563C887D44E9185D182E4 /* Roboto-BoldCondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2314FA11CE245C4BCA9F681 /* Roboto-BoldCondensedItalic.ttf */; };
+		D5E8EE57145745EA9366422D /* AktivGroteskCorp-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 202DE509FA094998B48155B7 /* AktivGroteskCorp-LightItalic.ttf */; };
+		E398B5BCA16E45D79C543D08 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2BF669C3E404BFCAC7F64F4 /* Roboto-MediumItalic.ttf */; };
+		E5F29981B6514563857011CE /* AktivGroteskCorp-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90D587629BEA4A9F9E11A9C1 /* AktivGroteskCorp-MediumItalic.ttf */; };
+		E91231D87CF34117AD727D2E /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52F697BA6F774D03A55E076B /* Roboto-ThinItalic.ttf */; };
+		EDB7A799FEE540DEB2B467AF /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66B0F3C6A7194DFF9F917B7F /* Roboto-Condensed.ttf */; };
+		F2674A70531541E4BCCEB3B5 /* Roboto-CondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70670B2519D94861BE33DAB6 /* Roboto-CondensedItalic.ttf */; };
+		F34971E54B7D41A3B9325818 /* NOTICE.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDE7D4192D074457A7895ACD /* NOTICE.txt */; };
+		FAD89FBF09E7466CA0E552CB /* Roboto_Specimen_Book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3140AB57210340D8A41F3301 /* Roboto_Specimen_Book.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		038DAD10D51B4E20873F759B /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-LightItalic.ttf"; path = "../assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		0E9AFA4207104846B4912196 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Debaere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Debaere.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Debaere/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Debaere/Info.plist; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Debaere/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		162A72C5651447F095CBB689 /* AktivGroteskCorp-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-Italic.ttf"; path = "../assets/fonts/AktivGroteskCorp-Italic.ttf"; sourceTree = "<group>"; };
+		1FDCED4F82F845449235FDD6 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		202DE509FA094998B48155B7 /* AktivGroteskCorp-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-LightItalic.ttf"; path = "../assets/fonts/AktivGroteskCorp-LightItalic.ttf"; sourceTree = "<group>"; };
+		2DCC1D798DCE45A9A2B35C77 /* Roboto-BoldCondensed.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldCondensed.ttf"; path = "../assets/fonts/Roboto-BoldCondensed.ttf"; sourceTree = "<group>"; };
+		3140AB57210340D8A41F3301 /* Roboto_Specimen_Book.pdf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_Specimen_Book.pdf; path = ../assets/fonts/Roboto_Specimen_Book.pdf; sourceTree = "<group>"; };
+		31E9B20748084BEBB735C839 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		385AB1E04A754A0FB780B6D9 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-Debaere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Debaere.debug.xcconfig"; path = "Target Support Files/Pods-Debaere/Pods-Debaere.debug.xcconfig"; sourceTree = "<group>"; };
+		52F697BA6F774D03A55E076B /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-Debaere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Debaere.release.xcconfig"; path = "Target Support Files/Pods-Debaere/Pods-Debaere.release.xcconfig"; sourceTree = "<group>"; };
+		58938D8249F5458B8018AC72 /* AktivGroteskCorp-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-Light.ttf"; path = "../assets/fonts/AktivGroteskCorp-Light.ttf"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-Debaere.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Debaere.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B0F3C6A7194DFF9F917B7F /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Condensed.ttf"; path = "../assets/fonts/Roboto-Condensed.ttf"; sourceTree = "<group>"; };
+		68313AA179C344F6AA1DA00C /* AktivGroteskCorp-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-Regular.ttf"; path = "../assets/fonts/AktivGroteskCorp-Regular.ttf"; sourceTree = "<group>"; };
+		6E4F692507374571BF1FB6D6 /* AktivGroteskCorp-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-Bold.ttf"; path = "../assets/fonts/AktivGroteskCorp-Bold.ttf"; sourceTree = "<group>"; };
+		70670B2519D94861BE33DAB6 /* Roboto-CondensedItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-CondensedItalic.ttf"; path = "../assets/fonts/Roboto-CondensedItalic.ttf"; sourceTree = "<group>"; };
+		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Debaere/AppDelegate.swift; sourceTree = "<group>"; };
+		77DB818DDA834874B4569FA2 /* AktivGroteskCorp-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-Medium.ttf"; path = "../assets/fonts/AktivGroteskCorp-Medium.ttf"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Debaere/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8C604758A2BB482F8FB715BD /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		90D587629BEA4A9F9E11A9C1 /* AktivGroteskCorp-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-MediumItalic.ttf"; path = "../assets/fonts/AktivGroteskCorp-MediumItalic.ttf"; sourceTree = "<group>"; };
+		9445598D6FE4441788B9593F /* Roboto-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		9AF1FC5452D44CF1813EC75C /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		C61B926FEB09455D934AAD9F /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		D2314FA11CE245C4BCA9F681 /* Roboto-BoldCondensedItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-BoldCondensedItalic.ttf"; path = "../assets/fonts/Roboto-BoldCondensedItalic.ttf"; sourceTree = "<group>"; };
+		D2BF669C3E404BFCAC7F64F4 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		DBE89935DDC04212B2D2D88F /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		DDE7D4192D074457A7895ACD /* NOTICE.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = NOTICE.txt; path = ../assets/fonts/NOTICE.txt; sourceTree = "<group>"; };
+		ECB2AFE9CD5F466CB9F0D4C9 /* AktivGroteskCorp-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "AktivGroteskCorp-BoldItalic.ttf"; path = "../assets/fonts/AktivGroteskCorp-BoldItalic.ttf"; sourceTree = "<group>"; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C80B921A6F3F58F76C31292 /* libPods-Debaere.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13B07FAE1A68108700A75B9A /* Debaere */ = {
+			isa = PBXGroup;
+			children = (
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				761780EC2CA45674006654EE /* AppDelegate.swift */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+			);
+			name = Debaere;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-Debaere.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				13B07FAE1A68108700A75B9A /* Debaere */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				A70090AB65594A66A146BAB9 /* Resources */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* Debaere.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A70090AB65594A66A146BAB9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E4F692507374571BF1FB6D6 /* AktivGroteskCorp-Bold.ttf */,
+				ECB2AFE9CD5F466CB9F0D4C9 /* AktivGroteskCorp-BoldItalic.ttf */,
+				162A72C5651447F095CBB689 /* AktivGroteskCorp-Italic.ttf */,
+				58938D8249F5458B8018AC72 /* AktivGroteskCorp-Light.ttf */,
+				202DE509FA094998B48155B7 /* AktivGroteskCorp-LightItalic.ttf */,
+				77DB818DDA834874B4569FA2 /* AktivGroteskCorp-Medium.ttf */,
+				90D587629BEA4A9F9E11A9C1 /* AktivGroteskCorp-MediumItalic.ttf */,
+				68313AA179C344F6AA1DA00C /* AktivGroteskCorp-Regular.ttf */,
+				DBE89935DDC04212B2D2D88F /* Roboto-Black.ttf */,
+				C61B926FEB09455D934AAD9F /* Roboto-BlackItalic.ttf */,
+				385AB1E04A754A0FB780B6D9 /* Roboto-Bold.ttf */,
+				2DCC1D798DCE45A9A2B35C77 /* Roboto-BoldCondensed.ttf */,
+				D2314FA11CE245C4BCA9F681 /* Roboto-BoldCondensedItalic.ttf */,
+				8C604758A2BB482F8FB715BD /* Roboto-BoldItalic.ttf */,
+				66B0F3C6A7194DFF9F917B7F /* Roboto-Condensed.ttf */,
+				70670B2519D94861BE33DAB6 /* Roboto-CondensedItalic.ttf */,
+				1FDCED4F82F845449235FDD6 /* Roboto-Italic.ttf */,
+				9AF1FC5452D44CF1813EC75C /* Roboto-Light.ttf */,
+				038DAD10D51B4E20873F759B /* Roboto-LightItalic.ttf */,
+				31E9B20748084BEBB735C839 /* Roboto-Medium.ttf */,
+				D2BF669C3E404BFCAC7F64F4 /* Roboto-MediumItalic.ttf */,
+				0E9AFA4207104846B4912196 /* Roboto-Regular.ttf */,
+				9445598D6FE4441788B9593F /* Roboto-Thin.ttf */,
+				52F697BA6F774D03A55E076B /* Roboto-ThinItalic.ttf */,
+				DDE7D4192D074457A7895ACD /* NOTICE.txt */,
+				3140AB57210340D8A41F3301 /* Roboto_Specimen_Book.pdf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B4392A12AC88292D35C810B /* Pods-Debaere.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-Debaere.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13B07F861A680F5B00A75B9A /* Debaere */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Debaere" */;
+			buildPhases = (
+				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
+				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Debaere;
+			productName = Debaere;
+			productReference = 13B07F961A680F5B00A75B9A /* Debaere.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Debaere" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* Debaere */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				81D98A3DA249207514F5C212 /* PrivacyInfo.xcprivacy in Resources */,
+				06A790D72C8F4B0785A7D1C3 /* AktivGroteskCorp-Bold.ttf in Resources */,
+				547785C7EB30456CBA41EBB5 /* AktivGroteskCorp-BoldItalic.ttf in Resources */,
+				33FC9E748E8144ADAF8BB95C /* AktivGroteskCorp-Italic.ttf in Resources */,
+				9DE064B681164DF69E69503F /* AktivGroteskCorp-Light.ttf in Resources */,
+				D5E8EE57145745EA9366422D /* AktivGroteskCorp-LightItalic.ttf in Resources */,
+				22D4A04B80034B59A47FF765 /* AktivGroteskCorp-Medium.ttf in Resources */,
+				E5F29981B6514563857011CE /* AktivGroteskCorp-MediumItalic.ttf in Resources */,
+				B4E18298A1C240B9B151990B /* AktivGroteskCorp-Regular.ttf in Resources */,
+				0BD94C2900F7461BBD3666AA /* Roboto-Black.ttf in Resources */,
+				0CE153C1EF144FBC80773FED /* Roboto-BlackItalic.ttf in Resources */,
+				27713E6BFD8A46848729A136 /* Roboto-Bold.ttf in Resources */,
+				0759752BC7884C518C39AF92 /* Roboto-BoldCondensed.ttf in Resources */,
+				C48563C887D44E9185D182E4 /* Roboto-BoldCondensedItalic.ttf in Resources */,
+				A2FED1F28ECA41F5874C466B /* Roboto-BoldItalic.ttf in Resources */,
+				EDB7A799FEE540DEB2B467AF /* Roboto-Condensed.ttf in Resources */,
+				F2674A70531541E4BCCEB3B5 /* Roboto-CondensedItalic.ttf in Resources */,
+				9A17B3ED7B0445CAB4DD0E4E /* Roboto-Italic.ttf in Resources */,
+				B6DCBF5D99F041F1A0D61962 /* Roboto-Light.ttf in Resources */,
+				91EE638E62DA403CB700594C /* Roboto-LightItalic.ttf in Resources */,
+				A977C72849D44CE69AF7F7B5 /* Roboto-Medium.ttf in Resources */,
+				E398B5BCA16E45D79C543D08 /* Roboto-MediumItalic.ttf in Resources */,
+				9C687A2D257E4D8C8D71ADD5 /* Roboto-Regular.ttf in Resources */,
+				568EB157D97F4E04952D7E91 /* Roboto-Thin.ttf in Resources */,
+				E91231D87CF34117AD727D2E /* Roboto-ThinItalic.ttf in Resources */,
+				F34971E54B7D41A3B9325818 /* NOTICE.txt in Resources */,
+				FAD89FBF09E7466CA0E552CB /* Roboto_Specimen_Book.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Debaere/Pods-Debaere-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Debaere/Pods-Debaere-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Debaere/Pods-Debaere-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Debaere-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Debaere/Pods-Debaere-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Debaere/Pods-Debaere-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Debaere/Pods-Debaere-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Debaere.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = F6Y2B8QF56;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = Debaere/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 5.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.debaereorder;
+				PRODUCT_NAME = Debaere;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Debaere.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = F6Y2B8QF56;
+				INFOPLIST_FILE = Debaere/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 5.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.debaereorder;
+				PRODUCT_NAME = Debaere;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				USE_HERMES = true;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Debaere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Debaere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}
