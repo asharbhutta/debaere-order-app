@@ -25,12 +25,13 @@ import { loadData } from "../redux/slices/dataSlice";
 
 import { useEffect } from "react";
 import { FONTS } from "../components/Fonts";
-import { color } from "react-native-elements/dist/helpers";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showElement, setShowElement] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
   const LOGIN_URL = "https://debaereor.asharbhutta.com/public/api/login";
   // const LOGIN_URL="http://192.168.0.107/debaere_order_admin/debaere_order_admin/public/api/login"
 
@@ -117,9 +118,16 @@ export default function Login({ navigation }) {
                 style={styles.TextInput}
                 placeholder="Password."
                 placeholderTextColor="white"
-                secureTextEntry={true}
+                secureTextEntry={!showPassword}
                 onChangeText={(password) => setPassword(password)}
               />
+              <TouchableOpacity style={styles.eye} onPress={()=>setShowPassword(!showPassword)}>
+              <Icon
+                name={showPassword ? "eye-off-sharp" : "eye-sharp"}
+                size={20}
+                color="white"
+              />
+              </TouchableOpacity>
             </View>
 
             <TouchableOpacity>
@@ -162,8 +170,14 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 65,
     marginBottom: 5,
-
     alignItems: "center",
+  },
+  eye: {
+    position: 'absolute',
+    padding: 10,
+    justifyContent: 'center',
+    right: 10,
+    height: 65
   },
 
   TextInput: {
