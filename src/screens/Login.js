@@ -25,6 +25,7 @@ import { loadData } from "../redux/slices/dataSlice";
 
 import { useEffect } from "react";
 import { FONTS } from "../components/Fonts";
+import { color } from "react-native-elements/dist/helpers";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     fontFamily: FONTS.regular,
-    fontSize: 16,
+    fontSize: 18,
     textAlign: 'center',
     color: 'white'
   },
@@ -195,7 +196,8 @@ const styles = StyleSheet.create({
   loginText: {
     color: COLORS.input,
     fontSize: 16,
-    fontFamily: FONTS.bold
+    fontFamily: FONTS.bold,
+    color: 'white'
     // fontWeight: '700',
   }
 });

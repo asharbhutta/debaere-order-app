@@ -39,7 +39,7 @@ export default function AdModal() {
   }
 
   return (
-    <Modal key="a12321as" onRequestClose={() => null} visible={visible}>
+    <Modal key="a12321as" visible={visible}>
       <View
         style={{
           flex: 1,

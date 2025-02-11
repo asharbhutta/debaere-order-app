@@ -15,20 +15,6 @@ export default function LoadingDialog() {
   const [showModal, setShowModal] = React.useState(true);
 
   React.useEffect(() => {
-    // if (visible) {
-    //   // setShowModal(true); // Show modal before animation
-    //   // Animated.timing(opacity, {
-    //   //   toValue: 1, // Fade in
-    //   //   duration: 1, // Adjust speed as needed
-    //   //   useNativeDriver: true,
-    //   // }).start();
-    // } else {
-    //   Animated.timing(opacity, {
-    //     toValue: 0, // Fade out
-    //     duration: 50000,
-    //     useNativeDriver: true,
-    //   }).start(() => setShowModal(false)); // Hide modal after fade-out completes
-    // }
     if(!visible && scaleAnimationComplete) {
       setShowModal(false)
       dispatch(loadingDismissed())
@@ -46,7 +32,7 @@ export default function LoadingDialog() {
     });
   }, []);
   return (
-    <Modal onRequestClose={() => null} visible={showModal} animationType="none" transparent>
+    <Modal key={'LoadingModal'} visible={showModal} animationType="none" transparent>
       <Animated.View
         style={{
           flex: 1,

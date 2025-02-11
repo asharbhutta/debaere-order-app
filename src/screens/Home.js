@@ -41,7 +41,7 @@ export default function HomeScreen({ navigation }) {
   const loadingDismissed = useSelector(selectLoadingDismissedStatus);
   const orderedProduct = orderDate != null ? true : false;
 
-  const [AdOpen, setAdOpen] = useState(orderedProduct);
+  const [AdOpen, setAdOpen] = useState(false);
   const [AdPresentedOnce, setAdPresentedOnce] = useState(false);
   const [pOpen, setPOpen] = useState(orderedProduct);
   const [description, setdescription] = useState("");
@@ -90,7 +90,7 @@ export default function HomeScreen({ navigation }) {
         dispatch(loadData(response.data));
         dispatch(loadingFinished());
         if (response.data.promotion.active == 1) {
-          // setAdOpen(true);
+          setAdOpen(true);
           setPromotionActive(true);
           setAdImage(response.data.promotion.image);
           setdescription(response.data.promotion.description);
@@ -109,12 +109,12 @@ export default function HomeScreen({ navigation }) {
     if (categories.length == 0) getData(token);
   }, []);
 
-  useEffect(() => {
-    if (!AdPresentedOnce && promotionActive && loadingDismissed) {
-      setAdOpen(true)
-      setAdPresentedOnce(true)
-    }
-  },[promotionActive, loadingDismissed, AdPresentedOnce])
+  // useEffect(() => {
+  //   if (!AdPresentedOnce && promotionActive && loadingDismissed) {
+  //     setAdOpen(true)
+  //     setAdPresentedOnce(true)
+  //   }
+  // },[promotionActive, loadingDismissed, AdPresentedOnce])
 
   // useEffect(() => {
   //   getData(token);
@@ -130,7 +130,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1, paddingTop: 20}}>
-       <TextInput
+      <TextInput
         style={{ padding: 15, borderRadius: 40, display: "none" }}
         label="Search"
         variant="outlined"
@@ -163,12 +163,17 @@ export default function HomeScreen({ navigation }) {
         keyExtractor={(item) => item.link}
         numColumns={3}
       />
-      <Modal key="a12321as" onRequestClose={() => null} visible={AdOpen}>
+      {/* <Modal key={'AddModal'} visible={AdOpen}> */}
+      {AdOpen &&
         <View
           style={{
             flex: 1,
+            width: '100%',
+            height: '100%',
             alignItems: "center",
             justifyContent: "center",
+            position: 'absolute',
+            zIndex: 100
           }}
         >
           <View
@@ -207,7 +212,6 @@ export default function HomeScreen({ navigation }) {
                 onPress={() => setAddClose()}
               />
             </View>
-
             <View
               style={{
                 justifyContent: "center",
@@ -245,7 +249,8 @@ export default function HomeScreen({ navigation }) {
             </View>
           </View>
         </View>
-      </Modal>
+      }
+      {/* </Modal> */}
     </View>
   );
 }

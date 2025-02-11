@@ -244,7 +244,7 @@ export default function OrderModal() {
   }
 
   return (
-    <Modal onRequestClose={() => null} visible={visible}>
+    <Modal key={'OrderModal'} visible={visible}>
       <View
         style={{
           flex: 1,

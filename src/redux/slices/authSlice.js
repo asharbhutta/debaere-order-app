@@ -14,7 +14,7 @@ const setToken = async (token) => {
 
 const setAuthObject = async (obj) => {
   const serializedInfo = JSON.stringify(obj);  
-  await AsyncStorage.setItem('authObject',serializedInfo);
+  await AsyncStorage.setItem('authObject', serializedInfo);
 };
 
 const authSlice = createSlice({
