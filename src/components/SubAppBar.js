@@ -78,7 +78,7 @@ export default function SubAppBar({ title, hideCart = "false" }) {
         title={title}
         centerTitle={true}
         subtitle={subTitle}
-        style={{ marginTop: APPBAR_HEIGHT, backgroundColor: COLORS.navBar }}
+        style={{ paddingTop: APPBAR_HEIGHT + (Platform.OS == 'android' ? 10 : 0), backgroundColor: COLORS.navBar  }}
         leading={(props) => (
         //   // <IconButton
         //   //   icon={(props) => (

@@ -177,11 +177,12 @@ export default function CartView() {
   const isCartEmpty = filteredProducts.length > 0 ? false : true;
 
   function showOrderConfirmationAlert() {
-    if (orderDate == null) {
+    if (orderDate == null ) {
       dispatch(modalOpen());
       dispatch(showWarningSnackBar({ message: "Please Select Order Date" }));
       return;
     }
+    
 
     if (tPrice < minOrderPrice) {
       //deliveryChargesAlert()

@@ -27,6 +27,7 @@ import {
 import { selectOrderDate, setOrderDate } from "../redux/slices/cartSlice";
 export default function OrderModal() {
   const visible = useSelector(selectModalStatus);
+  const orderDate = useSelector(selectOrderDate);
   const [date, setDate] = useState(null);
   const [varifiedDate, setVerifiedDate] = useState(null);
   const [showVerifyLoading, setShowVerifyLoadinge] = useState(false);
@@ -104,6 +105,7 @@ export default function OrderModal() {
           // dispatch(loadingFinished());
           setInValidDateError(`Please select another date,\n${error?.response?.data?.message ?? "Invalid Date"}`)
           setShowVerifyLoadinge(false)
+          setDate(null)
           dispatch(setOrderDate(null));
         });
     } catch (e) {
@@ -321,14 +323,15 @@ export default function OrderModal() {
                     <View style={{
                       width: 200,
                       height: 50,
-                      backgroundColor: '#E9ECEF',
+                      backgroundColor: 'transparent',//'#E9ECEF',
                       borderRadius: 12,
                       flexDirection: 'row',
                       justifyContent: 'center',
                       alignItems: 'center',
                       paddingHorizontal: 12,
+                      zIndex: 100
                     }}>
-                      <Text style={{
+                      {/* <Text style={{
                         flex: 1,
                         fontFamily: FONTS.regular,
                         fontSize: 18,
@@ -336,8 +339,8 @@ export default function OrderModal() {
                         color: '#151E26',
                         textAlign: 'center'
                       }}>
-                        {(selectedItem && selectedItem.title) || "Select Date"}
-                      </Text>
+                        {(selectedItem && selectedItem.title) || ( orderDate || "Select Date")}
+                      </Text> */}
                     </View>
                   );
                 }}
@@ -359,6 +362,29 @@ export default function OrderModal() {
                   borderRadius: 8,
                 }}
               />
+              <View style={{
+                position: 'absolute',
+                  width: 200,
+                  height: 50,
+                  backgroundColor: '#E9ECEF',
+                  borderRadius: 12,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  paddingHorizontal: 12,
+                  marginTop: 17,
+                }}>
+                  <Text style={{
+                    flex: 1,
+                    fontFamily: FONTS.regular,
+                    fontSize: 18,
+                    fontWeight: '500',
+                    color: '#151E26',
+                    textAlign: 'center'
+                  }}>
+                    {date ? date : ( orderDate ? orderDate : "Select Date")}
+                  </Text>
+                </View>
             </View>
           </KeyboardAvoidingView>
           <Button

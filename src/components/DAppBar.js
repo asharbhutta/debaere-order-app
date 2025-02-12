@@ -47,11 +47,11 @@ const DAppBar = () => {
 
   return (
     <>
-      <MyStatusBar backgroundColor={COLORS.navBar} barStyle="light-content" />
+      <MyStatusBar backgroundColor={COLORS.navBar} barStyle="light-content"/>
       <AppBar
         title="Debaere Order"
         centerTitle={true}
-        style={{ marginTop: APPBAR_HEIGHT, backgroundColor: COLORS.navBar }}
+        style={{ marginTop: APPBAR_HEIGHT, backgroundColor: COLORS.navBar, zIndex: 10000 }}
         leading={(props) => (
           <TouchableNativeFeedback onPress={() => navigation.navigate("Search")}>
           <View

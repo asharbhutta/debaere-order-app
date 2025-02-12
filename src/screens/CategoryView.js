@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectProducts } from "../redux/slices/dataSlice";
 import { FONTS } from "../components/Fonts";
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function CategoryView() {
   const dispatch = useDispatch();
